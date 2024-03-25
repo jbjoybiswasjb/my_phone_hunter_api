@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="This is a E-Commerce Website. Here is lots of products.">
     <meta name="keywords" content="Products, Phone, Mobile, Watch, Camera, E-Commerce, E-Commerce website, Online Phone, Online Mobile Phone">
-    <meta name="author" content="Phone Hunter">
+    <meta name="author" content="Hot Gadgets">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Page title. -->
@@ -16,7 +16,27 @@
     <link rel="icon" type="image/x-icon" href="images/gadgets_icon.png">
 
     <!-- Tailwind CSS and Daisy UI. -->
-    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.8.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind CDN for custom colors and other things. -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        dark01: '#100F0F',
+                        dark02: '#403F3F',
+                        commonTextColor: '#706F6F',
+                        buttonBgColor: '#0D6EFD',
+                        whiteColor: '#FFFFFF',
+                        bgColor01: '#0D6EFD0D',
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- CSS Style. -->
     <link rel="stylesheet" href="css/style.css">
@@ -28,7 +48,7 @@
                                                 Header.
         =======================================================================================
      -->
-    <header>
+    <header class="">
         <div></div>
         <div></div>
     </header>

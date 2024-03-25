@@ -1,86 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-    <!-- Meta tags. -->
-    <meta charset="UTF-8">
-    <meta name="description" content="This is a E-Commerce Website. Here is lots of products.">
-    <meta name="keywords" content="Products, Phone, Mobile, Watch, Camera, E-Commerce, E-Commerce website, Online Phone, Online Mobile Phone">
-    <meta name="author" content="Hot Gadgets">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
 
-    <!-- Page title. -->
-    <title>Hot Gadgets</title>
+        <!-- Meta tags. -->
+        <meta charset="UTF-8">
+        <meta name="description" content="This is a E-Commerce Website. Here is lots of products.">
+        <meta name="keywords"
+            content="Products, Phone, Mobile, Watch, Camera, E-Commerce, E-Commerce website, Online Phone, Online Mobile Phone">
+        <meta name="author" content="Hot Gadgets">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Page Favicon. -->
-    <link rel="icon" type="image/x-icon" href="images/gadgets_icon.png">
+        <!-- Page title. -->
+        <title>Hot Gadgets</title>
 
-    <!-- Tailwind CSS and Daisy UI. -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.8.0/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Page Favicon. -->
+        <link rel="icon" type="image/x-icon" href="images/gadgets_icon.png">
 
-    <!-- Tailwind CDN for custom colors and other things. -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                        dark01: '#100F0F',
-                        dark02: '#403F3F',
-                        commonTextColor: '#706F6F',
-                        buttonBgColor: '#0D6EFD',
-                        whiteColor: '#FFFFFF',
-                        bgColor01: '#0D6EFD0D',
+        <!-- Tailwind CSS and Daisy UI. -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.8.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Tailwind CDN for custom colors and other things. -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            clifford: '#da373d',
+                            dark01: '#100F0F',
+                            dark02: '#403F3F',
+                            commonTextColor: '#706F6F',
+                            buttonBgColor: '#0D6EFD',
+                            whiteColor: '#FFFFFF',
+                            bgColor01: '#0D6EFD0D',
+                        }
                     }
                 }
             }
-        }
-    </script>
+        </script>
 
-    <!-- CSS Style. -->
-    <link rel="stylesheet" href="css/style.css">
-    
-</head>
-<body class="bg-whiteColor xl:container mx-auto">
+        <!-- CSS Style. -->
+        <link rel="stylesheet" href="css/style.css">
 
-    <!-- 
+    </head>
+
+    <body class="bg-whiteColor xl:container mx-auto">
+
+        <!-- 
                                                 Header.
         =======================================================================================
      -->
-    <header class="bg-bgColor01 px-5 lg:px-[9.375em] poppins-bold h-screen">
+        <header
+            class="bg-bgColor01 px-5 lg:px-[9.375em] poppins-bold h-screen mb-[3em] sm:mb-[4em] md:mb-[5em] lg:mb-[28.8125em]">
 
-        <div class="flex justify-between items-center py-4 md:py-[1.5em] lg:py-[3.125em]">
-            <h2 class="text-[1.5625em] text-dark02"><a href="#">Hot Gadgets</a></h2>
-            <button class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-[1em] sm:px-[2em] lg:px-[2.5625em] py-[.4em] sm:py-[1em] lg:py-[1.0625em] text-[.8em] md:text-[1em] lg:text-[1.25em]">Sign Up</button>
-        </div>
+            <!-- Hot gadget header top. -->
+            <section class="flex justify-between items-center py-4 md:py-[1.5em] lg:py-[3.125em]">
+                <div class="text-[1.5625em] text-dark02"><a href="#">Hot Gadgets</a></div>
+                <button
+                    class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-[1em] sm:px-[2em] lg:px-[2.5625em] py-[.4em] sm:py-[1em] lg:py-[1.0625em] text-[.8em] md:text-[1em] lg:text-[1.25em]">Sign
+                    Up</button>
+            </section>
 
-        <!-- Text -->
-        <div class="text-center">
-            <h1 class="text-dark01 text-[3em] lg:text-[4.0625em] mb-6">Apple Iphone 13 Pro Max</h1>
-            <p class="w-3/4 mx-auto mb-8 poppins-regular lg:text-lg text-commonTextColor">Apple Iphone 13 Pro Max is our latest phone. It's one of the popular phone. It's service is no compromising. Sound quality is super. Picture quality is very beautiful with high resolution.</p>
-            <button class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-9 py-[1.0625em] text-[1.25em] mb-[4.5em]">Buy Now</button>
-            <img src="images/iphone_13_pro_max.png" alt="Iphone 13 Pro Max Image" title="Iphone 13 Pro Max Photo">
-        </div>
+            <!-- Hot gadget header bottom. -->
+            <section class="text-center">
+                <h1 class="text-dark01 text-[3em] lg:text-[4.0625em] mb-6">Apple Iphone 13 Pro Max</h1>
+                <p class="w-3/4 mx-auto mb-8 poppins-regular lg:text-lg text-commonTextColor">Apple Iphone 13 Pro Max is
+                    our latest phone. It's one of the popular phone. It's service is no compromising. Sound quality is
+                    super. Picture quality is very beautiful with high resolution.</p>
+                <button
+                    class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-9 py-[1.0625em] text-[1.25em] mb-[1.5em]">Buy
+                    Now</button>
+                <img src="images/iphone_13_pro_max.png" alt="Iphone 13 Pro Max Image" title="Iphone 13 Pro Max Photo">
+            </section>
 
-    </header>
+        </header>
 
 
-    <!-- 
+        <!-- 
                                                 Main.
         =======================================================================================
      -->
-    <main class="px-[9.375em]"></main>
+        <main class="px-5 lg:px-[9.375em] text-center py-[2em] md:py-[4em] lg:py-[7.5em]">
+
+            <!-- Hot gadget main Search. -->
+            <section>
+                <h2 class="text-dark01 text-[2.1875em] poppins-semibold mb-[1em] lg:mb-[1.875em] mt-20 sm:mt-0 md:mt-36 lg:mt-0">Search your phone</h2>
+
+                <div class="w-full sm:w-3/4 mx-auto">
+                    <label class="input input-bordered flex pr-0 items-center gap-2 py-8 bg-dark01/10 border-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                            class="w-4 h-4 opacity-70">
+                            <path fill-rule="evenodd"
+                                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <input type="text" class="grow text-base poppins-regular text-commonTextColor"
+                            placeholder="Search your phone" />
+                        <button
+                            class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-9 py-[1.0625em] text-[1.25em] poppins-bold hidden sm:block">Search</button>
+                    </label>
+                    <div class="flex justify-center mt-4">
+                        <button
+                            class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-9 py-[1.0625em] text-[1.25em] poppins-bold block sm:hidden">Search
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Hot gadget main Products. -->
+            <section>
+                
+            </section>
+
+            <!-- Hot gadget See More. -->
+            <section></section>
+
+        </main>
 
 
-    <!-- 
+        <!-- 
                                                 Footer.
         =======================================================================================
      -->
-    <footer class="px-[9.375em]"></footer>
+        <footer class="px-[9.375em]"></footer>
 
-    <!-- Fontawesome kit. -->
-    <script src="https://kit.fontawesome.com/1bbb5634e6.js" crossorigin="anonymous"></script>
-    
-</body>
+        <!-- Fontawesome kit. -->
+        <script src="https://kit.fontawesome.com/1bbb5634e6.js" crossorigin="anonymous"></script>
+
+    </body>
+
 </html>

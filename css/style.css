@@ -1,6 +1,11 @@
 /* Google fonts - Poppins. */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* Google fonts - Open Sans. */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap');
+
+
+/* Poppins. */
 .poppins-regular {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
@@ -28,4 +33,27 @@
 img {
     max-width: 100%;
     height: auto;
+}
+
+
+/* Open-Sans. */
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 800 */
+
+.open-sans-semibold {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.poppins-bold {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }

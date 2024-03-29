@@ -30,14 +30,9 @@
     font-style: normal;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 
 /* Open-Sans. */
-.poppins-medium {
+.open-sans-medium {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -55,7 +50,7 @@ img {
         "wdth" 100;
 }
 
-.poppins-bold {
+.open-sans-bold {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;

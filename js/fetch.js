@@ -32,12 +32,12 @@ const showDataInUI = (phoneData) => {
     phoneDiv.innerHTML = `
     <figure class="px-1 lg:px-[3.25em] py-8 lg:py-10 bg-bgColor01 rounded-xl ">
         <div class="w-[13.75em] h-[15.25em] flex justify-center items-center">
-            <img src="images/iphone_13_pro_max_1.png" alt="iphone_13_pro_max_1"
+            <img src="${phoneData.image}"
                 class="rounded-xl" />
         </div>
     </figure>
     <div class="card-body p-4 items-center text-center mt-[1.5625em]">
-        <h2 class="card-title mb-5 text-[1.5625em] text-dark02 poppins-bold">Iphone 13 Pro Max</h2>
+        <h2 class="card-title mb-5 text-[1.5625em] text-dark02 poppins-bold">${phoneData.phone_name}</h2>
         <p class="text-lg poppins-regular text-commonTextColor mb-2">This is Iphone 13 Pro Max. It's
             one of the best mobile phone. It's looking great.</p>
         <p class="mb-4 text-dark02 text-[1.5625em] poppins-bold">$999</p>

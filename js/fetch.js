@@ -1,9 +1,8 @@
 // Get the data from api.
-const phonesData = async () => {
-    const response = await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
+const phonesData = async (inputText) => {
+    const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`);
     const data = await response.json();
     const mainData = data.data;
-    console.log(mainData);
 
 
     phoneData(mainData);
@@ -14,6 +13,11 @@ const phonesData = async () => {
 
 // iterate the mainData for individual data.
 const phoneData = (mainData) => {
+
+    // For empty the content every time.
+    const phoneContainer = document.getElementById('phone_container');
+    phoneContainer.textContent = '';
+
     mainData.forEach(phoneData => {
 
         showDataInUI(phoneData);
@@ -49,9 +53,20 @@ const showDataInUI = (phoneData) => {
     </div>
     `
 
+
     phoneContainer.appendChild(phoneDiv);
 }
 
+
+
+
+// Get the input text and set it on search button.
+const getInputText = () => {
+    const inputField = document.getElementById('input_text_field');
+    const inputText = inputField.value;
+
+    phonesData(inputText);
+}
 
 
 phonesData();

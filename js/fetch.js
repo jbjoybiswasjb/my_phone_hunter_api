@@ -1,5 +1,5 @@
 // Get the data from api.
-const phonesData = async() => {
+const phonesData = async () => {
     const response = await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
     const data = await response.json();
     const mainData = data.data;
@@ -25,7 +25,31 @@ const phoneData = (mainData) => {
 // Show this individual data in UI,
 const showDataInUI = (phoneData) => {
     const phoneContainer = document.getElementById('phone_container');
-    
+
+    const phoneDiv = document.createElement('div');
+    phoneDiv.setAttribute("card", "p-0", "lg:p-[1.5625em]", "bg-base-100", "border");
+
+    phoneDiv.innerHTML = `
+    <figure class="px-1 lg:px-[3.25em] py-8 lg:py-10 bg-bgColor01 rounded-xl ">
+        <div class="w-[13.75em] h-[15.25em] flex justify-center items-center">
+            <img src="images/iphone_13_pro_max_1.png" alt="iphone_13_pro_max_1"
+                class="rounded-xl" />
+        </div>
+    </figure>
+    <div class="card-body p-4 items-center text-center mt-[1.5625em]">
+        <h2 class="card-title mb-5 text-[1.5625em] text-dark02 poppins-bold">Iphone 13 Pro Max</h2>
+        <p class="text-lg poppins-regular text-commonTextColor mb-2">This is Iphone 13 Pro Max. It's
+            one of the best mobile phone. It's looking great.</p>
+        <p class="mb-4 text-dark02 text-[1.5625em] poppins-bold">$999</p>
+        <div class="card-actions">
+            <button
+                class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-[.5em] sm:px-[1em] lg:px-[1.5625em] py-[.5em] sm:py-[.5em] lg:py-[0.5625em] text-[.8em] md:text-[1em] lg:text-[1.25em] poppins-semibold">Show
+                Details</button>
+        </div>
+    </div>
+    `
+
+    phoneContainer.appendChild(phoneDiv);
 }
 
 

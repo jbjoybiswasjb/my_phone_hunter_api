@@ -4,6 +4,21 @@ const phonesData = async (inputText) => {
     const data = await response.json();
     const mainData = data.data;
 
+    // Show the Show All button for specific number of phone show.
+    const showAllButton = document.getElementById('show_all_button_section');
+
+    if (mainData.length < 6) {
+        showAllButton.classList.add('hidden');
+    }
+    else {
+        showAllButton.classList.remove('hidden');
+    }
+
+
+
+    
+
+
 
     phoneData(mainData);
 }

@@ -2,7 +2,7 @@
 const phonesData = async (inputText) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`);
     const data = await response.json();
-    const mainData = data.data;
+    let mainData = data.data;
 
     // Show the Show All button for specific number of phone show.
     const showAllButton = document.getElementById('show_all_button_section');
@@ -16,7 +16,8 @@ const phonesData = async (inputText) => {
 
 
 
-    
+    // For show specific number of phone on UI.
+    mainData = mainData.slice(0, 6);
 
 
 

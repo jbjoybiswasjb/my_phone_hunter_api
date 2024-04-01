@@ -7,11 +7,11 @@ const phonesData = async (inputText) => {
     // Show the Show All button for specific number of phone show.
     const showAllButton = document.getElementById('show_all_button_section');
 
-    if (mainData.length < 6) {
-        showAllButton.classList.add('hidden');
+    if (mainData.length > 6) {
+        showAllButton.classList.remove('hidden');
     }
     else {
-        showAllButton.classList.remove('hidden');
+        showAllButton.classList.add('hidden');
     }
 
 
@@ -83,6 +83,13 @@ const getInputText = () => {
 
     phonesData(inputText);
 }
+
+
+
+// // Loading spinner.
+// const loading = () => {
+//     const loadingSpinnerSection = document.getElementById('loading_spinner_section');
+// }
 
 
 phonesData();

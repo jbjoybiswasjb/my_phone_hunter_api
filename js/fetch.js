@@ -69,6 +69,7 @@ const showDataInUI = (phoneData) => {
     </div>
     `
 
+    
 
     phoneContainer.appendChild(phoneDiv);
 }
@@ -82,14 +83,17 @@ const getInputText = () => {
     const inputText = inputField.value;
 
     phonesData(inputText);
+
+    loading();
 }
 
 
 
-// // Loading spinner.
-// const loading = () => {
-//     const loadingSpinnerSection = document.getElementById('loading_spinner_section');
-// }
+// Loading spinner.
+const loading = () => {
+    const loadingSpinnerSection = document.getElementById('loading_spinner_section');
+    loadingSpinnerSection.classList.remove('hidden');
+}
 
 
 phonesData();

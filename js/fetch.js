@@ -37,6 +37,10 @@ const phoneData = (mainData) => {
     mainData.forEach(phoneData => {
 
         showDataInUI(phoneData);
+
+        // For stop spinner after loading data.
+        loading(false);
+        
     });
 }
 
@@ -69,8 +73,6 @@ const showDataInUI = (phoneData) => {
     </div>
     `
 
-    
-
     phoneContainer.appendChild(phoneDiv);
 }
 
@@ -84,15 +86,23 @@ const getInputText = () => {
 
     phonesData(inputText);
 
-    loading();
+    loading(true);
 }
 
 
 
 // Loading spinner.
-const loading = () => {
+const loading = (isLoading) => {
     const loadingSpinnerSection = document.getElementById('loading_spinner_section');
-    loadingSpinnerSection.classList.remove('hidden');
+    
+    // Show spinner.
+    if(isLoading) {
+        loadingSpinnerSection.classList.remove('hidden');
+    }
+    else{
+        loadingSpinnerSection.classList.add('hidden');
+    }
+    
 }
 
 

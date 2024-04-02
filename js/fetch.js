@@ -69,7 +69,7 @@ const showDataInUI = (phoneData) => {
         <p class="mb-4 text-dark02 text-[1.5625em] poppins-bold">$999</p>
         <div class="card-actions">
             <button
-                class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-[.5em] sm:px-[1em] lg:px-[1.5625em] py-[.5em] sm:py-[.5em] lg:py-[0.5625em] text-[.8em] md:text-[1em] lg:text-[1.25em] poppins-semibold" onclick="clickedShowDetails()">Show
+                class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-[.5em] sm:px-[1em] lg:px-[1.5625em] py-[.5em] sm:py-[.5em] lg:py-[0.5625em] text-[.8em] md:text-[1em] lg:text-[1.25em] poppins-semibold" onclick="clickedShowDetails('${phoneData.slug}')">Show
                 Details</button>
         </div>
     </div>
@@ -116,10 +116,16 @@ const showAllData = () => {
 
 
 // Show details modal.
-const clickedShowDetails = () => {
-    console.log('clicked');
+const clickedShowDetails = async(id) => {
+    
+    // Get Each phone details.
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+    const phoneDetails = await res.json();
+    
 }
 
+
+// Phone Details Modal.
 
 
 phonesData();

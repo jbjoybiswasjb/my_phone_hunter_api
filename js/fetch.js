@@ -127,12 +127,13 @@ const clickedShowDetails = async(id) => {
 
 // Show phone details on modal.
 const showPhoneDetailsOnModal = (phoneDetails) => {
+    console.log(phoneDetails);
 
     const phoneDetailsModalDiv = document.getElementById('phone_details_modal_box');
     phoneDetailsModalDiv.innerHTML = `
     <figure class="py-8 lg:py-10 bg-bgColor01 rounded-xl ">
         <div class="flex justify-center items-center">
-            <img src="images/iphone_13_pro_max_2.png" />
+            <img src="${phoneDetails.image}" />
         </div>
     </figure>
     <h3 class="text-3xl mt-10 mb-6 poppins-bold text-dark02" id="phone_name">${phoneDetails.name}
@@ -146,35 +147,35 @@ const showPhoneDetailsOnModal = (phoneDetails) => {
     <div class="text-xl space-y-4 text-left">
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Storage:</span>
-            $128GB/256GB/1TB Storage, No card slot
+            ${phoneDetails.mainFeatures.storage}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Display Size :</span>
-            6.7 Inches, 109.8 cm
+            ${phoneDetails.mainFeatures.displaySize}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Chipset :</span>
-            Apple A15 Bionic
+            ${phoneDetails.mainFeatures.chipSet}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Memory :</span>
-            128GB 6 GB RAM, 256GB RAM, 512GB RAM1 1TB 6GB RAM
+            ${phoneDetails.memory}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Slug :</span>
-            Applice_Iphone_13_Pro_Max
+            ${phoneDetails.slug}
         </p>
         <p class="text-commonTextColor poppins-regular">
-            <span class="text-dark02 poppins-semibold">Release data :</span>
-            Released 2021, September 24
+            <span class="text-dark02 poppins-semibold">Release date :</span>
+            ${phoneDetails.releaseDate}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Brand :</span>
-            Apple
+            ${phoneDetails.name}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">GPS :</span>
-            AYes, with A-GPS, GLONASS, GALILEO, BDS, QZSS
+            ${phoneDetails.others.GPS}
         </p>
     </div>
     <div class="modal-action mt-10 flex justify-end">

@@ -17,7 +17,7 @@ const phonesData = async (inputText = "13", isShowAll) => {
 
 
     // For show specific number of phone on UI.
-    if(!isShowAll){
+    if (!isShowAll) {
         mainData = mainData.slice(0, 6);
     }
 
@@ -42,7 +42,7 @@ const phoneData = (mainData) => {
 
         // For stop spinner after loading data.
         loading(false);
-        
+
     });
 }
 
@@ -58,18 +58,18 @@ const showDataInUI = (phoneData) => {
     phoneDiv.innerHTML = `
     <figure class="px-1 lg:px-[3.25em] py-8 lg:py-10 bg-bgColor01 rounded-xl ">
         <div class="w-[13.75em] h-[15.25em] flex justify-center items-center">
-            <img src="${phoneData.image}"
+            <img src="${phoneData?.image}"
                 class="rounded-xl" />
         </div>
     </figure>
     <div class="card-body p-4 items-center text-center mt-[1.5625em]">
-        <h2 class="card-title mb-5 text-[1.5625em] text-dark02 poppins-bold">${phoneData.phone_name}</h2>
+        <h2 class="card-title mb-5 text-[1.5625em] text-dark02 poppins-bold">${phoneData?.phone_name}</h2>
         <p class="text-lg poppins-regular text-commonTextColor mb-2">This is Iphone 13 Pro Max. It's
             one of the best mobile phone. It's looking great.</p>
         <p class="mb-4 text-dark02 text-[1.5625em] poppins-bold">$999</p>
         <div class="card-actions">
             <button
-                class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-[.5em] sm:px-[1em] lg:px-[1.5625em] py-[.5em] sm:py-[.5em] lg:py-[0.5625em] text-[.8em] md:text-[1em] lg:text-[1.25em] poppins-semibold" onclick="clickedShowDetails('${phoneData.slug}')">Show
+                class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-[.5em] sm:px-[1em] lg:px-[1.5625em] py-[.5em] sm:py-[.5em] lg:py-[0.5625em] text-[.8em] md:text-[1em] lg:text-[1.25em] poppins-semibold" onclick="clickedShowDetails('${phoneData?.slug}')">Show
                 Details</button>
         </div>
     </div>
@@ -96,15 +96,15 @@ const getInputText = (isShowAll) => {
 // Loading spinner.
 const loading = (isLoading) => {
     const loadingSpinnerSection = document.getElementById('loading_spinner_section');
-    
+
     // Show spinner.
-    if(isLoading) {
+    if (isLoading) {
         loadingSpinnerSection.classList.remove('hidden');
     }
-    else{
+    else {
         loadingSpinnerSection.classList.add('hidden');
     }
-    
+
 }
 
 
@@ -116,7 +116,7 @@ const showAllData = () => {
 
 
 // Get phone details from api.
-const clickedShowDetails = async(id) => {
+const clickedShowDetails = async (id) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
     const data = await res.json();
     const phoneDetails = data.data;
@@ -133,10 +133,10 @@ const showPhoneDetailsOnModal = (phoneDetails) => {
     phoneDetailsModalDiv.innerHTML = `
     <figure class="py-8 lg:py-10 bg-bgColor01 rounded-xl ">
         <div class="flex justify-center items-center">
-            <img src="${phoneDetails.image}" />
+            <img src="${phoneDetails?.image}" />
         </div>
     </figure>
-    <h3 class="text-3xl mt-10 mb-6 poppins-bold text-dark02" id="phone_name">${phoneDetails.name}
+    <h3 class="text-3xl mt-10 mb-6 poppins-bold text-dark02" id="phone_name">${phoneDetails?.name}
     </h3>
     <p class="py-4 text-base poppins-regular text-commonTextColor text-justify">It is a long
         established fact that a
@@ -147,27 +147,27 @@ const showPhoneDetailsOnModal = (phoneDetails) => {
     <div class="text-xl space-y-4 text-left">
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Storage:</span>
-            ${phoneDetails.mainFeatures.storage}
+            ${phoneDetails?.mainFeatures?.storage}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Display Size :</span>
-            ${phoneDetails.mainFeatures.displaySize}
+            ${phoneDetails?.mainFeatures?.displaySize}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Chipset :</span>
-            ${phoneDetails.mainFeatures.chipSet}
+            ${phoneDetails?.mainFeatures?.chipSet}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Memory :</span>
-            ${phoneDetails.memory}
+            ${phoneDetails?.mainFeatures?.memory}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Slug :</span>
-            ${phoneDetails.slug}
+            ${phoneDetails?.slug}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Release date :</span>
-            ${phoneDetails.releaseDate}
+            ${phoneDetails?.releaseDate}
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">Brand :</span>
@@ -175,7 +175,7 @@ const showPhoneDetailsOnModal = (phoneDetails) => {
         </p>
         <p class="text-commonTextColor poppins-regular">
             <span class="text-dark02 poppins-semibold">GPS :</span>
-            ${phoneDetails.others.GPS}
+            ${phoneDetails?.others?.GPS ? phoneDetails?.others?.GPS : 'No GPS available.'}
         </p>
     </div>
     <div class="modal-action mt-10 flex justify-end">
@@ -193,3 +193,10 @@ const showPhoneDetailsOnModal = (phoneDetails) => {
 
 
 phonesData();
+
+
+// or
+// ${phoneDetails?.others?.GPS || 'No GPS available'}
+
+// Ternary operator.
+// ${ phoneDetails?.others?.GPS ? phoneDetails?.others?.GPS : 'No GPS available' }

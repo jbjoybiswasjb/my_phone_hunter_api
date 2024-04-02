@@ -1,5 +1,5 @@
 // Get the data from api.
-const phonesData = async (inputText) => {
+const phonesData = async (inputText = "13", isShowAll) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`);
     const data = await response.json();
     let mainData = data.data;
@@ -7,7 +7,7 @@ const phonesData = async (inputText) => {
     // Show the Show All button for specific number of phone show.
     const showAllButton = document.getElementById('show_all_button_section');
 
-    if (mainData.length > 6) {
+    if (mainData.length > 6 && !isShowAll) {
         showAllButton.classList.remove('hidden');
     }
     else {
@@ -17,7 +17,9 @@ const phonesData = async (inputText) => {
 
 
     // For show specific number of phone on UI.
-    mainData = mainData.slice(0, 6);
+    if(!isShowAll){
+        mainData = mainData.slice(0, 6);
+    }
 
 
 
@@ -67,7 +69,7 @@ const showDataInUI = (phoneData) => {
         <p class="mb-4 text-dark02 text-[1.5625em] poppins-bold">$999</p>
         <div class="card-actions">
             <button
-                class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-[.5em] sm:px-[1em] lg:px-[1.5625em] py-[.5em] sm:py-[.5em] lg:py-[0.5625em] text-[.8em] md:text-[1em] lg:text-[1.25em] poppins-semibold">Show
+                class="btn flex-nowrap h-auto bg-buttonBgColor text-whiteColor px-[.5em] sm:px-[1em] lg:px-[1.5625em] py-[.5em] sm:py-[.5em] lg:py-[0.5625em] text-[.8em] md:text-[1em] lg:text-[1.25em] poppins-semibold" onclick="clickedShowDetails()">Show
                 Details</button>
         </div>
     </div>
@@ -80,11 +82,11 @@ const showDataInUI = (phoneData) => {
 
 
 // Get the input text and set it on search button.
-const getInputText = () => {
+const getInputText = (isShowAll) => {
     const inputField = document.getElementById('input_text_field');
     const inputText = inputField.value;
 
-    phonesData(inputText);
+    phonesData(inputText, isShowAll);
 
     loading(true);
 }
@@ -104,6 +106,20 @@ const loading = (isLoading) => {
     }
     
 }
+
+
+
+// For show all data.
+const showAllData = () => {
+    getInputText(true);
+}
+
+
+// Show details modal.
+const clickedShowDetails = () => {
+    console.log('clicked');
+}
+
 
 
 phonesData();

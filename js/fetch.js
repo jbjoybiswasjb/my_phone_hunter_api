@@ -115,17 +115,80 @@ const showAllData = () => {
 }
 
 
-// Show details modal.
+// Get phone details from api.
 const clickedShowDetails = async(id) => {
-    
-    // Get Each phone details.
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
-    const phoneDetails = await res.json();
-    
+    const data = await res.json();
+    const phoneDetails = data.data;
+
+    showPhoneDetailsOnModal(phoneDetails);
 }
 
 
-// Phone Details Modal.
+// Show phone details on modal.
+const showPhoneDetailsOnModal = (phoneDetails) => {
+
+    const phoneDetailsModalDiv = document.getElementById('phone_details_modal_box');
+    phoneDetailsModalDiv.innerHTML = `
+    <figure class="py-8 lg:py-10 bg-bgColor01 rounded-xl ">
+        <div class="flex justify-center items-center">
+            <img src="images/iphone_13_pro_max_2.png" />
+        </div>
+    </figure>
+    <h3 class="text-3xl mt-10 mb-6 poppins-bold text-dark02" id="phone_name">${phoneDetails.name}
+    </h3>
+    <p class="py-4 text-base poppins-regular text-commonTextColor text-justify">It is a long
+        established fact that a
+        reader
+        will be
+        distracted by the readable content of a page when looking at its
+        layout.</p>
+    <div class="text-xl space-y-4 text-left">
+        <p class="text-commonTextColor poppins-regular">
+            <span class="text-dark02 poppins-semibold">Storage:</span>
+            $128GB/256GB/1TB Storage, No card slot
+        </p>
+        <p class="text-commonTextColor poppins-regular">
+            <span class="text-dark02 poppins-semibold">Display Size :</span>
+            6.7 Inches, 109.8 cm
+        </p>
+        <p class="text-commonTextColor poppins-regular">
+            <span class="text-dark02 poppins-semibold">Chipset :</span>
+            Apple A15 Bionic
+        </p>
+        <p class="text-commonTextColor poppins-regular">
+            <span class="text-dark02 poppins-semibold">Memory :</span>
+            128GB 6 GB RAM, 256GB RAM, 512GB RAM1 1TB 6GB RAM
+        </p>
+        <p class="text-commonTextColor poppins-regular">
+            <span class="text-dark02 poppins-semibold">Slug :</span>
+            Applice_Iphone_13_Pro_Max
+        </p>
+        <p class="text-commonTextColor poppins-regular">
+            <span class="text-dark02 poppins-semibold">Release data :</span>
+            Released 2021, September 24
+        </p>
+        <p class="text-commonTextColor poppins-regular">
+            <span class="text-dark02 poppins-semibold">Brand :</span>
+            Apple
+        </p>
+        <p class="text-commonTextColor poppins-regular">
+            <span class="text-dark02 poppins-semibold">GPS :</span>
+            AYes, with A-GPS, GLONASS, GALILEO, BDS, QZSS
+        </p>
+    </div>
+    <div class="modal-action mt-10 flex justify-end">
+        <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button
+                class="btn flex-nowrap h-auto text-xl poppins-bold text-whiteColor px-12 py-4 bg-modalCloseButtonColor">Close</button>
+        </form>
+    </div>
+    `;
+
+    details_modal.showModal();
+}
+
 
 
 phonesData();

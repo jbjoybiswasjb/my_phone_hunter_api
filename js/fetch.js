@@ -195,6 +195,8 @@ const showPhoneDetailsOnModal = (phoneDetails) => {
 phonesData();
 
 
+// Use ternary operator for ignore empty data.
+
 // or
 // ${phoneDetails?.others?.GPS || 'No GPS available'}
 

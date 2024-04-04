@@ -4,6 +4,17 @@ const phonesData = async (inputText = "13", isShowAll) => {
     const data = await response.json();
     let mainData = data.data;
 
+    // Added a message if no data found for search.
+    if(mainData.length === 0) {
+        const loadingSpinnerSection = document.getElementById('loading_spinner_section');
+        loadingSpinnerSection.classList.add('hidden');
+        const phoneContainer = document.getElementById('phone_container');
+        phoneContainer.innerHTML = '';
+
+        const noDataFoundSection = document.getElementById('no_data_found_section');
+        noDataFoundSection.classList.remove('hidden');
+    }
+
     // Show the Show All button for specific number of phone show.
     const showAllButton = document.getElementById('show_all_button_section');
 
@@ -31,11 +42,6 @@ const phonesData = async (inputText = "13", isShowAll) => {
 
 // iterate the mainData for individual data.
 const phoneData = (mainData) => {
-
-    // For empty the content every time.
-    const phoneContainer = document.getElementById('phone_container');
-    phoneContainer.textContent = '';
-
     mainData.forEach(phoneData => {
 
         showDataInUI(phoneData);

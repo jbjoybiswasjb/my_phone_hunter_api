@@ -31,6 +31,11 @@ const phonesData = async (inputText, isShowAll) => {
 
 // iterate the mainData for individual data.
 const phoneData = (mainData) => {
+
+    // Clear phone container before adding new search results.
+    const phoneContainer = document.getElementById('phone_container');
+    phoneContainer.textContent = '';
+
     mainData.forEach(phoneData => {
 
         showDataInUI(phoneData);

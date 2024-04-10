@@ -1,5 +1,5 @@
 // Get the data from api.
-const phonesData = async (inputText, isShowAll) => {
+const phonesData = async (inputText = '13', isShowAll) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`);
     const data = await response.json();
     let mainData = data.data;
@@ -22,10 +22,21 @@ const phonesData = async (inputText, isShowAll) => {
     }
 
 
-    // Hide spinner if no data found for search.
+
+
+    const notFoundMessageDiv = document.getElementById('not_found_message');
+    
     if(mainData.length === 0) {
+        // Hide spinner if no data found for search.
         loading(false);
+        
+        // If no data found for search result show a message.
+        notFoundMessageDiv.classList.remove('hidden');
     }
+    else {
+        notFoundMessageDiv.classList.add('hidden');
+    }
+
 
 
     phoneData(mainData);
@@ -132,8 +143,6 @@ const clickedShowDetails = async (id) => {
 
 // Show phone details on modal.
 const showPhoneDetailsOnModal = (phoneDetails) => {
-    console.log(phoneDetails);
-
     const phoneDetailsModalDiv = document.getElementById('phone_details_modal_box');
     phoneDetailsModalDiv.innerHTML = `
     <figure class="py-8 lg:py-10 bg-bgColor01 rounded-xl ">

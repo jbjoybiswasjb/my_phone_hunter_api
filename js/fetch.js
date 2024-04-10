@@ -125,7 +125,7 @@ const loading = (isLoading) => {
 
 
 
-// For show all data.
+// For show all data. Not the best way for show all data.
 const showAllData = () => {
     getInputText(true);
 }

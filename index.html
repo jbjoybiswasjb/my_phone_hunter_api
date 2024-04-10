@@ -172,9 +172,14 @@
             <!-- Phone details modal. -->
             <!-- Open the modal using ID.showModal() method -->
             <dialog id="details_modal" class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box p-10 w-full" id="phone_details_modal_box">
+                <div class="modal-box p-10 w-full" id="phone_details">
 
+                    <div id="phone_details_modal_box"></div>
 
+                    <!-- Modal spinner. -->
+                    <div class="hidden" id="loading_for_details_modal">
+                        <span class="loading loading-bars loading-lg text-buttonBgColor"></span>
+                    </div>
 
                 </div>
             </dialog>

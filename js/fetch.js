@@ -23,13 +23,17 @@ const phonesData = async (inputText = '13', isShowAll) => {
 
 
 
+    phoneData(mainData);
+
+
+
 
     const notFoundMessageDiv = document.getElementById('not_found_message');
-    
-    if(mainData.length === 0) {
+
+    if (mainData.length === 0) {
         // Hide spinner if no data found for search.
         loading(false);
-        
+
         // If no data found for search result show a message.
         notFoundMessageDiv.classList.remove('hidden');
     }
@@ -37,9 +41,6 @@ const phonesData = async (inputText = '13', isShowAll) => {
         notFoundMessageDiv.classList.add('hidden');
     }
 
-
-
-    phoneData(mainData);
 }
 
 
@@ -133,11 +134,17 @@ const showAllData = () => {
 
 // Get phone details from api.
 const clickedShowDetails = async (id) => {
+
+    modalLoading(true);
+
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
     const data = await res.json();
     const phoneDetails = data.data;
 
+    
     showPhoneDetailsOnModal(phoneDetails);
+    
+    modalLoading(false);
 }
 
 
@@ -202,6 +209,19 @@ const showPhoneDetailsOnModal = (phoneDetails) => {
     `;
 
     details_modal.showModal();
+}
+
+
+
+const modalLoading = (isModalLoading) => {
+    const modalLoading = document.getElementById('loading_for_details_modal');
+
+    if (isModalLoading) {
+        modalLoading.classList.remove('hidden');
+    }
+    else{
+        modalLoading.classList.add('hidden');
+    }
 }
 
 

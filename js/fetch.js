@@ -7,7 +7,7 @@ const phonesData = async (inputText, isShowAll) => {
     // Show the Show All button for specific number of phone show.
     const showAllButton = document.getElementById('show_all_button_section');
 
-    if (mainData.length > 8 && !isShowAll) {
+    if (mainData.length > 6 && !isShowAll) {
         showAllButton.classList.remove('hidden');
     }
     else {
@@ -21,6 +21,11 @@ const phonesData = async (inputText, isShowAll) => {
         mainData = mainData.slice(0, 6);
     }
 
+
+    // Hide spinner if no data found for search.
+    if(mainData.length === 0) {
+        loading(false);
+    }
 
 
     phoneData(mainData);

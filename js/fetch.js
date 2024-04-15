@@ -70,10 +70,10 @@ const showDataInUI = (phoneData) => {
     const phoneContainer = document.getElementById('phone_container');
 
     const phoneDiv = document.createElement('div');
-    phoneDiv.setAttribute("card", "p-0", "lg:p-[1.5625em]", "bg-base-100", "border");
+    phoneDiv.classList.add("card", "p-0", "lg:p-[1.5625em]", "bg-base-100", "border");
 
     phoneDiv.innerHTML = `
-    <figure class="px-1 lg:px-[3.25em] py-8 lg:py-10 bg-bgColor01 rounded-xl ">
+    <figure class="px-1 lg:px-[3.25em] py-8 lg:py-10 bg-bgColor01 rounded-xl">
         <div class="w-[13.75em] h-[15.25em] flex justify-center items-center">
             <img src="${phoneData?.image}"
                 class="rounded-xl" />
